@@ -36,7 +36,7 @@ TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_4) {
  ASSERT_STREQ(soundex,"@123");
 }
 
-TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_4) {
+TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_5) {
  //AAA
   char soundex[5];
   generateSoundex("AEIOUHWY", soundex);
