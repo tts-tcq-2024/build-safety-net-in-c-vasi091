@@ -17,19 +17,13 @@ char getSoundexCode(char c) {
 }
 
 void appendCode(char *soundex, int *sIndex, char code) {
-    if (*sIndex >= 4) {
-        return;
+    if (*sIndex < 4 && code != '0' && code != soundex[*sIndex - 1]) {
+        soundex[(*sIndex)++] = code;
     }
-    if (code == '0' || code == soundex[*sIndex - 1]) {
-        return;
-    }
-    soundex[(*sIndex)++] = code;
 }
 
 void padWithZeros(char *soundex, int sIndex) {
-    while (sIndex < 4) {
-        soundex[sIndex++] = '0';
-    }
+    memset(soundex + sIndex, '0', 4 - sIndex);
     soundex[4] = '\0';
 }
 
@@ -39,8 +33,7 @@ void generateSoundex(const char *name, char *soundex) {
     int sIndex = 1;
 
     for (int i = 1; i < len && sIndex < 4; i++) {
-        char code = getSoundexCode(name[i]);
-        appendCode(soundex, &sIndex, code);
+        appendCode(soundex, &sIndex, getSoundexCode(name[i]));
     }
 
     padWithZeros(soundex, sIndex);
