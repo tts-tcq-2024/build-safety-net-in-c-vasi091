@@ -8,7 +8,7 @@ TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits) {
  ASSERT_STREQ(soundex,"A200");
 }
 
-TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits) {
+TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_1) {
  //AAA
   char soundex[5];
   generateSoundex("HI@", soundex);
