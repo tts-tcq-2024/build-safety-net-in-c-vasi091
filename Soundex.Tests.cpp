@@ -14,3 +14,10 @@ TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_1) {
   generateSoundex("HI@", soundex);
  ASSERT_STREQ(soundex,"H000");
 }
+
+TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_2) {
+ //AAA
+  char soundex[5];
+  generateSoundex("BM^", soundex);
+ ASSERT_STREQ(soundex,"B500");
+}
