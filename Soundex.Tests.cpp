@@ -28,3 +28,10 @@ TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_3) {
   generateSoundex("ACGJ", soundex);
  ASSERT_STREQ(soundex,"A200");
 }
+
+TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_4) {
+ //AAA
+  char soundex[5];
+  generateSoundex("C45dFe$", soundex);
+ ASSERT_STREQ(soundex,"C310");
+}
