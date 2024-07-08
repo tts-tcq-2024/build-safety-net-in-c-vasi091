@@ -35,3 +35,10 @@ TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_4) {
   generateSoundex("@@BBCCDD", soundex);
  ASSERT_STREQ(soundex,"@123");
 }
+
+TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_4) {
+ //AAA
+  char soundex[5];
+  generateSoundex("AEIOUHWY", soundex);
+  ASSERT_STREQ(soundex, "A000"); 
+}
