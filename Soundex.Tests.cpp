@@ -32,6 +32,6 @@ TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_3) {
 TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_4) {
  //AAA
   char soundex[5];
-  generateSoundex("@BBCD", soundex);
+  generateSoundex("@@BBCCDD", soundex);
  ASSERT_STREQ(soundex,"@123");
 }
