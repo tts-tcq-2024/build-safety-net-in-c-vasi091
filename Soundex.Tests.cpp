@@ -21,3 +21,10 @@ TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_2) {
   generateSoundex("BM^", soundex);
  ASSERT_STREQ(soundex,"B500");
 }
+
+TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_3) {
+ //AAA
+  char soundex[5];
+  generateSoundex("ACGJ", soundex);
+ ASSERT_STREQ(soundex,"A200");
+}
