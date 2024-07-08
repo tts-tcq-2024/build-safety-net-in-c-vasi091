@@ -17,9 +17,13 @@ char getSoundexCode(char c) {
 }
 
 void appendCode(char *soundex, int *sIndex, char code) {
-    if (*sIndex < 4 && code != '0' && code != soundex[*sIndex - 1]) {
-        soundex[(*sIndex)++] = code;
+    if (*sIndex >= 4) {
+        return;
     }
+    if (code == '0' || code == soundex[*sIndex - 1]) {
+        return;
+    }
+    soundex[(*sIndex)++] = code;
 }
 
 void padWithZeros(char *soundex, int sIndex) {
