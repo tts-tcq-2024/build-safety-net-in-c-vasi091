@@ -39,6 +39,6 @@ TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_4) {
 TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_5) {
  //AAA
   char soundex[5];
-  generateSoundex("AEIOUHWY", soundex);
-  ASSERT_STREQ(soundex, "A000"); 
+  generateSoundex("Vasi_091", soundex);
+  ASSERT_STREQ(soundex, "V200"); 
 }
