@@ -1,7 +1,6 @@
 #ifndef SOUNDEX_H
 #define SOUNDEX_H
 
-#include "Soundex.h"
 #include <ctype.h>
 #include <string.h>
 
@@ -18,6 +17,19 @@ char getSoundexCode(char c) {
     }
 }
 
+void appendCode(char *soundex, int *sIndex, char code) {
+    if (*sIndex < 4 && code != '0' && code != soundex[*sIndex - 1]) {
+        soundex[(*sIndex)++] = code;
+    }
+}
+
+void padWithZeros(char *soundex, int sIndex) {
+    while (sIndex < 4) {
+        soundex[sIndex++] = '0';
+    }
+    soundex[4] = '\0';
+}
+
 void generateSoundex(const char *name, char *soundex) {
     int len = strlen(name);
     soundex[0] = toupper(name[0]);
@@ -25,16 +37,10 @@ void generateSoundex(const char *name, char *soundex) {
 
     for (int i = 1; i < len && sIndex < 4; i++) {
         char code = getSoundexCode(name[i]);
-        if (code != '0' && code != soundex[sIndex - 1]) {
-            soundex[sIndex++] = code;
-        }
+        appendCode(soundex, &sIndex, code);
     }
 
-    while (sIndex < 4) {
-        soundex[sIndex++] = '0';
-    }
-
-    soundex[4] = '\0';
+    padWithZeros(soundex, sIndex);
 }
 
 #endif // SOUNDEX_H
