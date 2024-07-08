@@ -16,8 +16,12 @@ char getSoundexCode(char c) {
     return '0'; // For non-alphabet characters
 }
 
+int canAppendCode(char *soundex, int sIndex, char code) {
+    return sIndex < 4 && code != '0' && code != soundex[sIndex - 1];
+}
+
 void appendCode(char *soundex, int *sIndex, char code) {
-    if (*sIndex < 4 && code != '0' && code != soundex[*sIndex - 1]) {
+    if (canAppendCode(soundex, *sIndex, code)) {
         soundex[(*sIndex)++] = code;
     }
 }
