@@ -12,5 +12,5 @@ TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_1) {
  //AAA
   char soundex[5];
   generateSoundex("HI@", soundex);
- ASSERT_STREQ(soundex,"H400");
+ ASSERT_STREQ(soundex,"H000");
 }
